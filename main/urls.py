@@ -1,5 +1,24 @@
 from django.urls import path, register_converter
-from .views import *
+from .views import (
+    home,
+    about,
+    create_post,
+    topics,
+    topic_subscribe,
+    topic_unsubscribe,
+    profile,
+    set_password,
+    set_userdata,
+    deactivate_profile,
+    register_new_profile,
+    user_login,
+    user_logout,
+    posts_archive,
+    show_article,
+    article_comment,
+    article_update,
+    article_delete,
+    )
 from . import converters
 
 
