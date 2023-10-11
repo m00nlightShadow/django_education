@@ -1,0 +1,87 @@
+{% extends "main/base.html" %}
+
+{% block title %}My Blog{% endblock %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p class="text-center fs-3 ">Blog posts</p>
+<div id="body_row">
+    <div id="content">
+        <div class="row">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body ">
+                    <h5 class="card-title">Exploring the Evolving Landscape of Web Development in the Age of Technology
+                        Trends</h5>
+                    <p class="card-text">
+                        Introduction: In today's rapidly advancing technological landscape, web development has become
+                        an indispensable part of our lives. As the world becomes increasingly interconnected,
+                        it is vital for businesses and individuals alike to stay up-to-date with the latest technology
+                        trends in order to thrive in the digital realm...
+                    </p>
+                    <a href="{% url 'show_article' article=12 %}" class="btn btn-primary">Continue reading...</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Exploring the Evolving Landscape of Web Development in the Age of Technology
+                        Trends</h5>
+                    <p class="card-text">
+                        Introduction: In today's rapidly advancing technological landscape, web development has become
+                        an indispensable part of our lives. As the world becomes increasingly interconnected,
+                        it is vital for businesses and individuals alike to stay up-to-date with the latest technology
+                        trends in order to thrive in the digital realm...
+                    </p>
+                    <a href="{% url 'show_article' article=12 %}" class="btn btn-primary">Continue reading...</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Exploring the Evolving Landscape of Web Development in the Age of Technology
+                        Trends</h5>
+                    <p class="card-text">
+                        Introduction: In today's rapidly advancing technological landscape, web development has become
+                        an indispensable part of our lives. As the world becomes increasingly interconnected,
+                        it is vital for businesses and individuals alike to stay up-to-date with the latest technology
+                        trends in order to thrive in the digital realm...
+                    </p>
+                    <a href="{% url 'show_article' article=12 %}" class="btn btn-primary">Continue reading...</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Exploring the Evolving Landscape of Web Development in the Age of Technology
+                        Trends</h5>
+                    <p class="card-text">
+                        Introduction: In today's rapidly advancing technological landscape, web development has become
+                        an indispensable part of our lives. As the world becomes increasingly interconnected,
+                        it is vital for businesses and individuals alike to stay up-to-date with the latest technology
+                        trends in order to thrive in the digital realm...
+                    </p>
+                    <a href="{% url 'show_article' article=12 %}" class="btn btn-primary">Continue reading...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar">
+        <div class="card text-center bg-transparent">
+            <div class="card-body">
+                <h4>Account</h4>
+                <a href="{% url 'user_login' %}" class="btn btn-primary">Login</a>
+                <a href="{% url 'register_new_profile'%}" class="btn btn-primary">Register</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+
+{% endblock %}

@@ -1,73 +1,73 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
+from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def home(request):
-    return HttpResponse('Homepage')
+    return render(request, 'main/post/list.html')
 
 
 def about(request):
-    return HttpResponse('Django func descriptions')
+    return render(request, 'main/post/about.html')
 
 
 def create_post(request):
-    return HttpResponse('Creating new article')
+    return render(request, 'main/post/create_post.html')
 
 
 def topics(request):
-    return HttpResponse('Topics list')
+    return render(request, 'main/topic_list/topics.html')
 
 
 def topic_subscribe(request, topic):
-    return HttpResponse(f'Subscribe to the {topic = }')
+    return render(request, 'main/topic_list/topic_subscribe.html')
 
 
 def topic_unsubscribe(request, topic):
-    return HttpResponse(f'Unsubscribe to the {topic = }')
+    return render(request, 'main/topic_list/topic_unsubscribe.html')
 
 
 def show_article(request, article):
-    return HttpResponse(f'Here {article = }')
+    return render(request, 'main/post/detail.html')
 
 
 def article_comment(request, article):
-    return HttpResponse(f'Here comment to {article = }')
+    return render(request, 'main/post/add_comments.html')
 
 
 def article_update(request, article):
-    return HttpResponse(f'Updating {article = }')
+    return render(request, 'main/topic_list/article_update.html')
 
 
 def article_delete(request, article):
-    return HttpResponse(f'Deleting {article = }')
+    return render(request, 'main/topic_list/article_delete.html')
 
 
 def profile(request, username: str):
-    return HttpResponse(f'Hello {username}')
+    return render(request, 'main/user_templates/profile.html')
 
 
 def set_password(request):
-    return HttpResponse('Updating password')
+    return render(request, 'main/user_templates/set_user_password.html')
 
 
 def set_userdata(request):
-    return HttpResponse('Updating userdata')
+    return render(request, 'main/user_templates/set_userdata.html')
 
 
-def deactivate_profile(request):
-    return HttpResponse('Deactivating profile')
+def delete_account(request):
+    return render(request, 'main/user_templates/delete_account.html')
 
 
 def register_new_profile(request):
-    return HttpResponse('Profile registration')
+    return render(request, 'main/user_templates/register.html')
 
 
 def user_login(request):
-    return HttpResponse('User login')
+    return render(request, 'main/user_templates/login.html')
 
 
 def user_logout(request):
-    return HttpResponseRedirect(reverse('home'))
+    return render(request, 'main/base.html')
 
 
 def posts_archive(request, year, month):
