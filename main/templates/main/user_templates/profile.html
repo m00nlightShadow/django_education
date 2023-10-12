@@ -3,18 +3,12 @@
 {% block title %} Profile {% endblock %}
 
 {% block content %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-</head>
-<body>
+
 <div>
     <p><a href="{% url 'set_password' %}">Set password</a>
     <p><a href="{% url 'set_userdata' %}">Set userdata</a>
     <p><a href="{% url 'delete_account' %}">Delete account</a>
     <p><a href="{% url 'user_logout' %}">Logout</a>
 </div>
-</body>
-</html>
+
 {% endblock %}

@@ -3,11 +3,7 @@
 {% block title %} Topics {% endblock %}
 
 {% block content %}
-<html lang="en">
-<head>
-    <title>Topics</title>
-</head>
-<body>
+
 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
     <p><a href="" >Topic 1</a></p>
     <p><a href="{% url 'topic_subscribe' 1 %}" class="btn btn-secondary">Subscribe</a></p>
@@ -17,6 +13,5 @@
     <p><a href="{% url 'topic_subscribe' 2 %}" class="btn btn-secondary">Subscribe</a></p>
     <p><a href="{% url 'topic_unsubscribe' 2 %}" class="btn btn-secondary">Unsubscribe</a></p>
 </div>
-</body>
-</html>
+
 {% endblock %}
