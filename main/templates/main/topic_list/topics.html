@@ -1,0 +1,17 @@
+{% extends "main/base.html" %}
+
+{% block title %} Topics {% endblock %}
+
+{% block content %}
+
+<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+    <p><a href="" >Topic 1</a></p>
+    <p><a href="{% url 'topic_subscribe' 1 %}" class="btn btn-secondary">Subscribe</a></p>
+    <p><a href="{% url 'topic_unsubscribe' 1 %}" class="btn btn-secondary">Unsubscribe</a></p>
+
+    <p><a href="" >Topic 2</a></p>
+    <p><a href="{% url 'topic_subscribe' 2 %}" class="btn btn-secondary">Subscribe</a></p>
+    <p><a href="{% url 'topic_unsubscribe' 2 %}" class="btn btn-secondary">Unsubscribe</a></p>
+</div>
+
+{% endblock %}

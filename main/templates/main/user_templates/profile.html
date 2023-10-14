@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+
+<div>
+    <p><a href="{% url 'set_password' %}">Set password</a>
+    <p><a href="{% url 'set_userdata' %}">Set userdata</a>
+    <p><a href="{% url 'delete_account' %}">Delete account</a>
+    <p><a href="{% url 'user_logout' %}">Logout</a>
+</div>
+
+{% endblock %}
