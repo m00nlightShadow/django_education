@@ -15,7 +15,7 @@
                     <p class="card-text">{{ article.content|truncatewords:30|linebreaks}}</p>
                 </div>
                 <div class="text-center">
-                    <a href="{% url 'show_article' article=article.pk %}" class="btn btn-primary">Continue
+                    <a href="{% url 'show_article' article.pk %}" class="btn btn-primary">Continue
                         reading...</a>
                 </div>
                 <p></p>

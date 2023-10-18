@@ -1,10 +1,11 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
-from main.models import Article, Comment
+from main.models import Article, Comment, Topic
 
 
 def home(request):
-    return render(request, 'main/post/list.html', {'articles': Article.objects.all()})
+    return render(request, 'main/post/list.html', {'articles': Article.objects.all(),
+                                                                        'topics': Topic.objects.all()})
 
 
 def about(request):

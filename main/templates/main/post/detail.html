@@ -14,8 +14,8 @@
             <p class="h3">Account</p>
             <div class="btn-group-vertical " role="group" aria-label="Vertical button group">
                 <p><a href="{% url 'create_post' %}" class="btn btn-secondary">Create post</a></p>
-                <p><a href="{% url 'article_update' 12 %}" class="btn btn-secondary">Update post</a></p>
-                <p><a href="{% url 'article_delete' 12 %}" class="btn btn-danger">Delete post</a></p>
+                <p><a href="{% url 'article_update' article.pk %}" class="btn btn-secondary">Update post</a></p>
+                <p><a href="{% url 'article_delete' article.pk %}" class="btn btn-danger">Delete post</a></p>
             </div>
         </div>
     </div>
@@ -28,6 +28,6 @@
     <p>Comment: {{comment.message}}
     </p>
     {% endfor %}
-    <p><a href="{% url 'article_comment' 12 %}" class="btn-primary">Add comment</a></p>
+    <p><a href="{% url 'article_comment' article.pk %}" class="btn-primary">Add comment</a></p>
 </div>
 {% endblock %}
