@@ -1,103 +1,33 @@
 {% extends "main/base.html" %}
 
-{% block title %} Article {% endblock %}
+{% block title %} {{ article.title }} {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-9">
-            <h2 class="text-center">Exploring the Evolving Landscape of Web Development in the Age of Technology
-                Trends</h2>
-            <p class="text-start">Introduction:</p>
-            <p>
-                In today's rapidly advancing technological landscape, web development has become an indispensable
-                part of our lives. As the world becomes increasingly interconnected, it is vital for businesses
-                and individuals alike to stay up-to-date with the latest technology trends in order to thrive in
-                the digital realm. In this article, we will delve into some of the key technology trends shaping
-                the field of web development, offering insights into how these advancements are revolutionizing
-                the way websites and applications are built, and how they are transforming the user experience.
-            </p>
-            <p>Progressive Web Apps (PWAs):</p>
-            <p>
-                One of the most significant technology trends in web development is the rise of Progressive
-                Web Apps (PWAs). PWAs combine the best of both worlds, bringing together the responsiveness
-                and versatility of web applications with the user experience of native mobile apps.
-                With features like offline access, push notifications, and seamless responsiveness across devices,
-                PWAs offer an immersive and engaging user experience. As web developers continue to embrace this trend,
-                we can expect to see a surge in the development of PWAs that provide a more app-like experience to
-                users.
-            </p>
-            <p>Artificial Intelligence (AI) and Machine Learning (ML):</p>
-            <p>
-                The integration of Artificial Intelligence and Machine Learning into web development
-                has opened up new possibilities for creating intelligent and personalized user experiences.
-                AI-powered chatbots, recommendation systems, and content personalization are just a few examples
-                of how AI and ML are transforming web development. These technologies enable websites and applications
-                to analyze user behavior, provide relevant recommendations, and adapt their content dynamically,
-                thereby enhancing user engagement and satisfaction.
-            </p>
-            <p>Voice User Interface (VUI):</p>
-            <p>
-                The rise of voice assistants and smart speakers has brought about a new paradigm in user interface
-                design.
-                Voice User Interfaces (VUIs) are gaining traction as an alternative means of interacting
-                with websites and applications. Web developers are now incorporating voice commands and natural
-                language processing capabilities to enable users to perform tasks and access information hands-free.
-                VUIs offer a more convenient and accessible way of interacting with digital systems, leading to improved
-                user experiences and increased user engagement.
-            </p>
-            <p>Single-Page Applications (SPAs):</p>
-            <p>
-                Single-Page Applications have gained popularity due to their ability to deliver fast
-                and seamless user experiences. SPAs load the entire website or application upfront,
-                allowing for quick navigation and minimizing page reloads. By leveraging JavaScript
-                frameworks like React, Angular, or Vue.js, web developers can create dynamic and interactive
-                SPAs that provide a fluid browsing experience. As internet speeds continue to improve,
-                SPAs are expected to become even more prevalent, offering users a smooth and responsive
-                browsing experience.
-            </p>
-            <p>Cybersecurity and Data Privacy:</p>
-            <p>
-                As technology advances, ensuring the security and privacy of user data has become a top priority
-                for web developers. With the increasing frequency and sophistication of cyberattacks,
-                implementing robust security measures and adhering to data privacy regulations is crucial.
-                Web developers are now adopting secure coding practices, implementing encryption protocols,
-                and regularly updating software to safeguard user data. Additionally, advancements in technologies
-                like blockchain are being explored to enhance data security and transparency in web applications.
-            </p>
-            <p>Conclusion:</p>
-            <p>
-                In this era of rapid technological evolution, web development is at the forefront of innovation.
-                As we have explored some of the prominent technology trends shaping the field, it is clear that
-                web developers must stay updated and adapt to these changes to deliver exceptional user experiences.
-                From Progressive Web Apps to AI integration, Voice User Interfaces to Single-Page Applications,
-                and cybersecurity to data privacy, the landscape of web development continues to evolve. By embracing
-                these trends, web developers can unlock new possibilities and create websites and applications
-                that are not only functional but also captivating and user-centric.
-            </p>
-        </div>
 
-        <div class="col-md-3">
-            <div class="sidebar">
-                <div class="card text-center bg-transparent" style="width: 18rem;">
-                    <p class="h3">Account</p>
-                    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                        <p><a href="{% url 'create_post' %}" class="btn btn-secondary">Create post</a></p>
-                        <p><a href="{% url 'article_update' 12 %}" class="btn btn-secondary">Update post</a></p>
-                        <p><a href="{% url 'article_delete' 12 %}" class="btn btn-danger">Delete post</a></p>
-                    </div>
-                </div>
+<div id="body_row">
+    <div id="content">
+        <h2 class="text-center">{{ article.title }}</h2>
+        <p class="text-start">{{ article.content }}</p>
+    </div>
+    <div id="sidebar">
+        <div class="card text-center bg-transparent" style="width: 18rem;">
+            <p class="h3">Account</p>
+            <div class="btn-group-vertical " role="group" aria-label="Vertical button group">
+                <p><a href="{% url 'create_post' %}" class="btn btn-secondary">Create post</a></p>
+                <p><a href="{% url 'article_update' article.pk %}" class="btn btn-secondary">Update post</a></p>
+                <p><a href="{% url 'article_delete' article.pk %}" class="btn btn-danger">Delete post</a></p>
             </div>
         </div>
     </div>
 </div>
+</div>
 <div class="container">
     <h2>Comments</h2>
-    <p class="h7">Name: Wilcome Brownlock</p>
-    <p>Comment: Great article! I found the insights on Progressive Web Apps and their app-like experience quite
-        intriguing. It's amazing how web development is evolving to provide more seamless and immersive user
-        experiences.
+    {% for comment in article.comments.all %}
+    <p class="h7">Name: {{comment.author}}</p>
+    <p>Comment: {{comment.message}}
     </p>
-    <p><a href="{% url 'article_comment' 12 %}" class="btn-primary">Add comment</a></p>
+    {% endfor %}
+    <p><a href="{% url 'article_comment' article.pk %}" class="btn-primary">Add comment</a></p>
 </div>
 {% endblock %}

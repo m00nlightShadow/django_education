@@ -31,7 +31,7 @@ class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
 
     def __str__(self):
-        return self.message
+        return f'{self.author} about {self.article}'
 
 
 class Preference(models.Model):

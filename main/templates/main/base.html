@@ -26,12 +26,10 @@
         <a href="{% url 'home' %}" class="link-offset-2 link-underline link-underline-opacity-0">DJANGO BLOG</a>
     </div>
 </div>
-<div  class="text-center fs-2 link-underline-opacity-0">
-    <a href="">Some topic 1</a>
-    <a href="">Some topic 2</a>
-    <a href="">Some topic 3</a>
-    <a href="">Some topic 4</a>
-    <a href="">Some topic 5</a>
+<div  class="text-center fs-5 link-underline-opacity-0">
+    {% for topic in topics %}
+    <a href="">{{ topic.title }}</a>
+    {% endfor %}
 </div>
 {% block content %}
 {% endblock %}
