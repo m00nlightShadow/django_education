@@ -1,9 +1,10 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
+from main.models import Article, Comment
 
 
 def home(request):
-    return render(request, 'main/post/list.html')
+    return render(request, 'main/post/list.html', {'articles': Article.objects.all()})
 
 
 def about(request):
@@ -27,7 +28,11 @@ def topic_unsubscribe(request, topic):
 
 
 def show_article(request, article):
-    return render(request, 'main/post/detail.html')
+    try:
+        article_detail = Article.objects.get(pk=article)
+    except Article.DoesNotExist:
+        raise Http404
+    return render(request, 'main/post/detail.html', {'article': article_detail})
 
 
 def article_comment(request, article):

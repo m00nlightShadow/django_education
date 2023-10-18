@@ -7,58 +7,22 @@
 <div id="body_row">
     <div id="content">
         <div class="row">
+            {% for article in articles %}
             <div class="card" style="width: 18rem;">
-                <div class="card-body ">
-                    <h5 class="card-title">Exploring the Evolving Landscape of Web Development in the Age of Technology
-                        Trends</h5>
-                    <p class="card-text">
-                        Introduction: In today's rapidly advancing technological landscape, web development has become
-                        an indispensable part of our lives. As the world becomes increasingly interconnected,
-                        it is vital for businesses and individuals alike to stay up-to-date with the latest technology
-                        trends in order to thrive in the digital realm...
-                    </p>
-                    <a href="{% url 'show_article' article=12 %}" class="btn btn-primary">Continue reading...</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
+                <div class="card-header"> <h5 class="card-title">{{ article.title }}</h5></div>
                 <div class="card-body">
-                    <h5 class="card-title">Exploring the Evolving Landscape of Web Development in the Age of Technology
-                        Trends</h5>
-                    <p class="card-text">
-                        Introduction: In today's rapidly advancing technological landscape, web development has become
-                        an indispensable part of our lives. As the world becomes increasingly interconnected,
-                        it is vital for businesses and individuals alike to stay up-to-date with the latest technology
-                        trends in order to thrive in the digital realm...
-                    </p>
-                    <a href="{% url 'show_article' article=12 %}" class="btn btn-primary">Continue reading...</a>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ article.topic.all.first}}</h6>
+                    <p class="card-text">{{ article.content|truncatewords:30|linebreaks}}</p>
                 </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Exploring the Evolving Landscape of Web Development in the Age of Technology
-                        Trends</h5>
-                    <p class="card-text">
-                        Introduction: In today's rapidly advancing technological landscape, web development has become
-                        an indispensable part of our lives. As the world becomes increasingly interconnected,
-                        it is vital for businesses and individuals alike to stay up-to-date with the latest technology
-                        trends in order to thrive in the digital realm...
-                    </p>
-                    <a href="{% url 'show_article' article=12 %}" class="btn btn-primary">Continue reading...</a>
+                <div class="text-center">
+                    <a href="{% url 'show_article' article=article.pk %}" class="btn btn-primary">Continue
+                        reading...</a>
                 </div>
+                <p></p>
+                <div class="card-footer text-muted"> Created {{ article.created_at }}</div>
+                <div class="card-footer text-muted"> Updated {{ article.updated_at }}</div>
             </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Exploring the Evolving Landscape of Web Development in the Age of Technology
-                        Trends</h5>
-                    <p class="card-text">
-                        Introduction: In today's rapidly advancing technological landscape, web development has become
-                        an indispensable part of our lives. As the world becomes increasingly interconnected,
-                        it is vital for businesses and individuals alike to stay up-to-date with the latest technology
-                        trends in order to thrive in the digital realm...
-                    </p>
-                    <a href="{% url 'show_article' article=12 %}" class="btn btn-primary">Continue reading...</a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
     <div id="sidebar">
